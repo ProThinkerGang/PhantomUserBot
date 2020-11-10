@@ -2,7 +2,7 @@
   "name": "Phantom Userbot",
   "description": "A Bot for Security, Management and Fun",
   "logo": "https://telegra.ph/file/c7b627350ba5322b6d75d.jpg ",
-    "keywords": [
+  "keywords": [
     "telegram",
     "management",
     "userbot",
@@ -94,17 +94,12 @@
       "required": false
     },
     "PM_LOGGR_BOT_API_ID": {
-       "description": "for login private messages create a private channel and do .get_id and add that id", 
-       "value": ""
-    }, 
+      "description": "for login private messages create a private channel and do .get_id and add that id",
+      "value": ""
+    },
     "STRING_SESSION": {
       "description": "Get this value by running https://darkcobra.crazycreatorr.repl.run/ ",
       "value": ""
-    },
-    "LYDIA_API_KEY": {
-      "description": "Needed for Lydia AI. Follow https://telegra.ph/Lydia-09-05 to get your API.",
-      "value": "",
-      "required": false
     },
     "HEROKU_API_KEY": {
       "description": "Go to https://dashboard.heroku.com/account, scroll down and press Reveal API.Required for updater to work.",
@@ -147,7 +142,7 @@
       "description": "Set The emojies You Want to Add In Help Command You Can Add Multiple Emojies too!!",
       "value": "",
       "required": true
-    }, 
+    },
     "TZ": {
       "description": "Required for Correct Time for autopic get from http://www.timezoneconverter.com/cgi-bin/findzone.tzc",
       "value": "Asia/Kolkata",
@@ -156,7 +151,7 @@
     "REDIRECTCHANNEL": {
       "description": "Put You Channel Username Reflecting Your Info or Your Tags Etc",
       "value": "",
-      "required": false 
+      "required": false
     }
   },
   "addons": [
@@ -170,17 +165,24 @@
   "buildpacks": [
     {
       "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-  },{
-    "url":"https://github.com/amivin/aria2-heroku.git"
-  },{
-    "url":"https://github.com/heroku/heroku-buildpack-google-chrome"
-  },{
-     "url": "https://github.com/heroku/heroku-buildpack-apt.git"
-  },{
-    "url":"https://github.com/heroku/heroku-buildpack-chromedriver"
-  },{
-    "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
-  },{
-    "url": "heroku/python"
-  }]
+    },
+    {
+      "url": "https://github.com/amivin/aria2-heroku.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-apt.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-chromedriver"
+    },
+    {
+      "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ]
 }
