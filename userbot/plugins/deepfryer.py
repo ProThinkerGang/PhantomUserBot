@@ -40,7 +40,7 @@ from userbot.utils import phantom_cmd
 from telethon import events
 
 
-@borg.on(phantom_cmd(pattern="deepfry(?: |$)(.*)", outgoing=True)) 
+@borg.on(phantom_cmd(pattern="deepfry(?: |$)(.*)", outgoing=True))
 async def deepfryer(event):
     try:
         frycount = int(event.pattern_match.group(1))
@@ -90,9 +90,12 @@ async def deepfry(img: Image) -> Image:
     # Crush image to hell and back
     img = img.convert("RGB")
     width, height = img.width, img.height
-    img = img.resize((int(width ** uniform(0.8, 0.9)), int(height ** uniform(0.8, 0.9))), resample=Image.LANCZOS)
-    img = img.resize((int(width ** uniform(0.85, 0.95)), int(height ** uniform(0.85, 0.95))), resample=Image.BILINEAR)
-    img = img.resize((int(width ** uniform(0.89, 0.98)), int(height ** uniform(0.89, 0.98))), resample=Image.BICUBIC)
+    img = img.resize((int(width ** uniform(0.8, 0.9)),
+                      int(height ** uniform(0.8, 0.9))), resample=Image.LANCZOS)
+    img = img.resize((int(width ** uniform(0.85, 0.95)),
+                      int(height ** uniform(0.85, 0.95))), resample=Image.BILINEAR)
+    img = img.resize((int(width ** uniform(0.89, 0.98)),
+                      int(height ** uniform(0.89, 0.98))), resample=Image.BICUBIC)
     img = img.resize((width, height), resample=Image.BICUBIC)
     img = ImageOps.posterize(img, randint(3, 7))
 
