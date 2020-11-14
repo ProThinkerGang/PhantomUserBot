@@ -5,6 +5,7 @@ from telethon import events
 from userbot.utils import phantom_cmd
 from userbot import ALIVE_NAME, ALIVE_PIC
 from telethon.tl.types import ChannelParticipantsAdmins
+
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "PHANTOM USER"
 
 PHANTOM_IMG = "./Resources/phantom1.jpg"
