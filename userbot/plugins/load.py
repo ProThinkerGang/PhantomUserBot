@@ -8,7 +8,6 @@ Available Commands:
 .heart
 .anim
 .fnl"""
-
 import asyncio
 
 from telethon import events

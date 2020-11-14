@@ -5,7 +5,8 @@ import random
 from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from userbot import ALIVE_NAME, ALIVE_PIC
+from userbot import ALIVE_NAME
+from userbot import ALIVE_PIC
 from userbot.utils import phantom_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "PHANTOM USER"
