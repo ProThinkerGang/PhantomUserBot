@@ -23,9 +23,9 @@ async def autopic(event):
 
     await event.edit("Colour Profile Pic have been successfully enabled")
     downloaded_file_name = "./FRIDAY/original_pic.png"
-    downloader = SmartDL(
-        Var.DOWNLOAD_PFP_URL_CLOCK, downloaded_file_name, progress_bar=False
-    )
+    downloader = SmartDL(Var.DOWNLOAD_PFP_URL_CLOCK,
+                         downloaded_file_name,
+                         progress_bar=False)
     downloader.start(blocking=False)
     photo = "photo_pfp.png"
     while not downloader.isFinished():
@@ -45,22 +45,22 @@ async def autopic(event):
 
         # Edit only Below part ð Or esle u will be responsible ð¤·ââ
         current_time = datetime.now().strftime(
-            "\n\n Time: %H:%M:%S \n \n Date: %d/%m/%y"
-        )
+            "\n\n Time: %H:%M:%S \n \n Date: %d/%m/%y")
         img = Image.open(photo)
         drawn_text = ImageDraw.Draw(img)
         fnt = ImageFont.truetype(FONT_FILE_TO_USE, 40)
         ofnt = ImageFont.truetype(FONT_FILE_TO_USE, 40)
         drawn_text.text((200, 400), current_time, font=fnt, fill=(FR, FG, FB))
-        drawn_text.text((250, 250), f"{DEFAULTUSER}", font=ofnt, fill=(FR, FG, FB))
+        drawn_text.text((250, 250),
+                        f"{DEFAULTUSER}",
+                        font=ofnt,
+                        fill=(FR, FG, FB))
         img.save(photo)
         file = await event.client.upload_file(photo)  # pylint:disable=E0602
         try:
             await event.client(
                 functions.photos.DeletePhotosRequest(
-                    await event.client.get_profile_photos("me", limit=1)
-                )
-            )
+                    await event.client.get_profile_photos("me", limit=1)))
             await event.client(
                 functions.photos.UploadProfilePhotoRequest(file)  # pylint:disable=E0602
             )
