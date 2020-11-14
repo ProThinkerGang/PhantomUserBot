@@ -9,9 +9,9 @@ Available Commands:
 .anim
 .fnl"""
 
-from telethon import events
-
 import asyncio
+
+from telethon import events
 
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
