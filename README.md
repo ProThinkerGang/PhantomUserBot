@@ -20,4 +20,4 @@
 <a href="https://t.me/PhantomSupport"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram" width="190" height="28"></a>
 <hr>
 <img src="https://telegra.ph/file/005cc69cebfbea719ee2a.jpg"><nbr>
-<img src="https://telegra.ph/file/9751ac8d91e8857e3dc6a.jpg" height"700">
+<img src="https://telegra.ph/file/9751ac8d91e8857e3dc6a.jpg" height"600">
