@@ -16,4 +16,4 @@
 
 # Join Us on Telegram
 <a href="https://t.me/Phantomot"><img src="https://img.shields.io/badge/Join-Telegram%20Channel-red.svg?logo=Telegram" width="180" height="30"></a> &nbsp; &nbsp; &nbsp;
-<a href="https://t.me/PhantomSupport"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram" width="180" height="30"></a><-- rattio of This Button 6:1-->
+<a href="https://t.me/PhantomSupport"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram" width="180" height="30"></a>
