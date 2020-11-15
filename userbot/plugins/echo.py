@@ -4,21 +4,16 @@ Idea by @BlazingRobonix
 
 """
 #    Copyright (C) 2020  sandeep.n(π.$)
-
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
 #    published by the Free Software Foundation, either version 3 of the
 #    License, or (at your option) any later version.
-
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU Affero General Public License for more details.
-
 #   You should have received a copy of the GNU Affero General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 import asyncio
 
 import pybase64
@@ -27,8 +22,12 @@ from telethon import events
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
 from .. import CMD_HELP
-from ..utils import edit_or_reply, phantom_cmd
-from .sql_helper.echo_sql import addecho, get_all_echos, is_echo, remove_echo
+from ..utils import edit_or_reply
+from ..utils import phantom_cmd
+from .sql_helper.echo_sql import addecho
+from .sql_helper.echo_sql import get_all_echos
+from .sql_helper.echo_sql import is_echo
+from .sql_helper.echo_sql import remove_echo
 
 
 @borg.on(phantom_cmd(pattern="enableecho$"))
