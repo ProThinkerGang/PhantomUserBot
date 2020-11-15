@@ -10,7 +10,7 @@ from telethon import events
 
 
 @borg.on(phantom_cmd(pattern="tr ?(.*)"))
-@borg.on(events.NewMessage(pattern=r"\.tr ?(.*)",incoming=True))
+@borg.on(events.NewMessage(pattern=r"\.tr ?(.*)", incoming=True))
 async def _(event):
     if event.fwd_from:
         return
