@@ -5,8 +5,9 @@ Available Commands:
 
 import emoji
 from googletrans import Translator
-from userbot.utils import phantom_cmd
 from telethon import events
+
+from userbot.utils import phantom_cmd
 
 
 @borg.on(phantom_cmd(pattern="tr ?(.*)"))
