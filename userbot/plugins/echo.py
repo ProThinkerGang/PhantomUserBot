@@ -50,7 +50,8 @@ async def echo(cat):
         addecho(user_id, chat_id)
         await edit_or_reply(cat, "Hi")
     else:
-        await edit_or_reply(cat, "Reply To A User's Message to echo his messages")
+        await edit_or_reply(cat,
+                            "Reply To A User's Message to echo his messages")
 
 
 @borg.on(phantom_cmd(pattern="disableecho$"))
@@ -73,7 +74,8 @@ async def echo(cat):
         else:
             await edit_or_reply(cat, "The user is not activated with echo")
     else:
-        await edit_or_reply(cat, "Reply To A User's Message to echo his messages")
+        await edit_or_reply(cat,
+                            "Reply To A User's Message to echo his messages")
 
 
 @borg.on(phantom_cmd(pattern="listecho$"))
@@ -90,14 +92,10 @@ async def echo(cat):
     else:
         output_str = "No echo enabled users "
     if len(output_str) > Config.MAX_MESSAGE_SIZE_LIMIT:
-        key = (
-            requests.post(
-                "https://nekobin.com/api/documents", json={"content": output_str}
-            )
-            .json()
-            .get("result")
-            .get("key")
-        )
+        key = (requests.post("https://nekobin.com/api/documents",
+                             json={
+                                 "content": output_str
+                             }).json().get("result").get("key"))
         url = f"https://nekobin.com/{key}"
         reply_text = f"echo enabled users: [here]({url})"
         await edit_or_reply(cat, reply_text)
@@ -121,14 +119,13 @@ async def samereply(cat):
             await cat.reply(cat.message)
 
 
-CMD_HELP.update(
-    {
-        "echo": "**Syntax :** `.addecho` reply to user to who you want to enable\
+CMD_HELP.update({
+    "echo":
+    "**Syntax :** `.addecho` reply to user to who you want to enable\
     \n**Usage : **replay's his every message for whom you enabled echo\
     \n\n**Syntax : **`.rmecho` reply to user to who you want to stop\
     \n**Usage : **Stops replaying his messages\
     \n\n**Syntax : **`.listecho`\
     \n**Usage : **shows the list of users for who you enabled echo\
     "
-    }
-)
+})
