@@ -5,7 +5,9 @@
 from telethon import events
 import random
 import asyncio
+from userbot.utils import phantom_cmd
 
+#borg.on(phantom_cmd(pattern="\.react (.*)", outgoing=True))
 @borg.on(events.NewMessage(pattern=r"\.react (.*)", outgoing=True))
 async def _(event):
     if event.fwd_from:
@@ -41,15 +43,6 @@ async def _(event):
             "ヾ(◍’౪`◍)ﾉﾞ♡",
             "(ό‿ὸ)ﾉ",
             "(ヾ(´・ω・｀)",
-        ]
-    elif input_str in "wtf":
-        emoticons = [
-            "༎ຶ‿༎ຶ",
-            "(‿ˠ‿)",
-            "╰U╯☜(◉ɷ◉ )",
-            "(;´༎ຶ益༎ຶ`)♡",
-            "╭∩╮(︶ε︶*)chu",
-            "( ＾◡＾)っ (‿|‿)",
         ]
     elif input_str in "love":
         emoticons = [

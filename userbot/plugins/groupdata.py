@@ -1,4 +1,5 @@
 from asyncio import sleep
+import time
 from os import remove
 from telethon import events
 import asyncio
@@ -17,18 +18,18 @@ from telethon.errors import (BadRequestError, ChatAdminRequiredError,
                              ImageProcessFailedError, PhotoCropSizeSmallError,
                              UserAdminInvalidError)
 from userbot import CMD_HELP
-from userbot.utils import  errors_handler, admin_cmd
+from userbot.utils import  errors_handler, admin_cmd, phantom_cmd
 
-@borg.on(admin_cmd(pattern="leave$"))
+@borg.on(phantom_cmd(pattern="leave$")) # Not for SUDO
 async def leave(e):
-        await e.edit("`Legend is leaving this chat.....!Goodbye aren't forever..` ")
-        time.sleep(3)
+        await e.edit("`My Master is leaving this chat.....!\nGoodbye..` ")
+        await asyncio.sleep(3)
         if '-' in str(e.chat_id):
             await bot(LeaveChannelRequest(e.chat_id))
         else:
             await e.edit('`Sar This is Not A Chat`')
 
-@borg.on(admin_cmd(pattern="chinfo(?: |$)(.*)", outgoing=True))
+@borg.on(phantom_cmd(pattern="chinfo(?: |$)(.*)", outgoing=True))
 async def info(event):
     await event.edit("`Weit lemme analyze the chat`")
     chat = await get_chatinfo(event)
@@ -208,7 +209,7 @@ async def fetch_info(chat, event):
         caption += f"Description: \n<code>{description}</code>\n"
     return caption
   
-@borg.on(admin_cmd(pattern="adminlist", outgoing=True))
+@borg.on(phantom_cmd(pattern="adminlist", outgoing=True))
 @errors_handler
 async def get_admin(show):
     """ For .admins command, list all of the admins of the chat. """
@@ -229,7 +230,7 @@ async def get_admin(show):
     await show.edit(mentions, parse_mode="html")
 
     
-@borg.on(admin_cmd(pattern=r"users ?(.*)", outgoing=True))
+@borg.on(phantom_cmd(pattern=r"users ?(.*)", outgoing=True))
 async def get_users(show):
         if not show.is_group:
             await show.edit("Are you sure this is a group?")
@@ -271,6 +272,8 @@ async def get_users(show):
 CMD_HELP.update({
     "groupdata":
     ".chinfo or .chatinfo <username of group>\
+     \n\n.leave\
+     \nUsage: will leave the Group\
      \nUsage: Shows you the total information of the required chat.\
      \n\n.adminlist\
      \nUsage: Retrieves a list of admins in the chat.\

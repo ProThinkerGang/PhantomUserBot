@@ -3,10 +3,11 @@ import asyncio
 from telethon import events
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import ChannelParticipantsAdmins
-from userbot.utils import admin_cmd
+from userbot.utils import admin_cmd, phantom_cmd
+from userbot import ALIVE_NAME
 
 
-@borg.on(admin_cmd(pattern="gbun"))
+@borg.on(phantom_cmd(pattern="gbun"))
 async def gbun(event):
     if event.fwd_from:
         return
@@ -22,10 +23,10 @@ async def gbun(event):
     reply_message = None
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
-        replied_user = await event.client(GetFullUserRequest(reply_message.from_id))
+        replied_user = await event.client(GetFullUserRequest(reply_message.sender_id))
         firstname = replied_user.user.first_name
         usname = replied_user.user.username
-        idd = reply_message.from_id
+        idd = reply_message.sender_id
         # make meself invulnerable cuz why not xD
         if idd == 1118936839:
             await reply_message.reply("`Wait a second, This is my master!`\n**How dare you threaten to ban my master nigger!**\n\n__Your account has been hacked! Pay 69$ to my master__ [✰Sᴀͥʀᴀͣᴛͫʜ™️✰](tg://user?id=1118936839) __to release your account__😏")
@@ -48,6 +49,6 @@ async def gbun(event):
                 jnl += no_reason
             await reply_message.reply(jnl)
     else:
-        mention = "`Warning!! User 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By Admin...\nReason: Potential spammer. `"
+        mention = f"`Warning!! User 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By {ALIVE_NAME}...\nReason: Potential spammer. `"
         await event.reply(mention)
     await event.delete()

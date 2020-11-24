@@ -9,7 +9,7 @@ from telethon import events
 import asyncio
 import os
 import sys
-from userbot.utils import admin_cmd
+from userbot.utils import phantom_cmd, sudo_cmd
 import random
 from userbot import CMD_HELP
 
@@ -221,7 +221,8 @@ img203="https://telegra.ph/file/b588d77c41d3451e560c1.jpg"
 #PHANTOMOT
 
 
-@borg.on(admin_cmd(outgoing=True, pattern="aquote"))
+@borg.on(phantom_cmd(outgoing=True, pattern="aquote"))
+@borg.on(sudo_cmd(outgoing=True, pattern="aquote", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

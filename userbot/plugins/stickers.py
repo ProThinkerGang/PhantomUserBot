@@ -13,7 +13,7 @@ from PIL import Image
 import random
 from telethon.tl.types import DocumentAttributeFilename, MessageMediaPhoto
 from userbot import bot, CMD_HELP
-from userbot.utils import register
+from userbot.utils import register, phantom_cmd, sudo_cmd
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.types import InputStickerSetID
 from telethon.tl.types import DocumentAttributeSticker
@@ -33,6 +33,7 @@ KANGING_STR = [
 
 
 @register(outgoing=True, pattern="^.kang")
+@borg.on(sudo_cmd(pattern=".kang", outgoing=True, allow_sudo=True))
 async def kang(args):
     """ For .kang command, kangs stickers or creates new ones. """
     user = await bot.get_me()

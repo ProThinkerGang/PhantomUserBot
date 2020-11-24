@@ -2,10 +2,11 @@
 Syntax: .coinflip [optional_choice]"""
 from telethon import events
 import random, re
-from uniborg.util import admin_cmd
+from userbot.utils import phantom_cmd, sudo_cmd
 
 
-@borg.on(admin_cmd(pattern="coin ?(.*)"))
+@borg.on(phantom_cmd(pattern="coin ?(.*)"))
+@borg.on(sudo_cmd(pattern="coin ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

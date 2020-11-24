@@ -1,7 +1,7 @@
 {
   "name": "Phantom Userbot",
   "description": "A Bot for Security, Management and Fun",
-  "logo": "https://telegra.ph/file/c7b627350ba5322b6d75d.jpg ",
+  "logo": "https://raw.githubusercontent.com/ProThinkerGang/PhantomUserbot/master/Resources/phantom1.jpg",
     "keywords": [
     "telegram",
     "management",
@@ -23,8 +23,8 @@
       "value": "./userbot/DOWNLOADS/",
       "required": false
     },
-    "F_BAN_LOGGER_GROUP": {
-      "description": "Put Group id Same As PRIVATE_GROUP_ID.",
+    "CMD_HNDLR": {
+      "description": "Symbol which you want to use While Giving Commands. Dont Forget to Enter backslash at Starting of it. Leave it Empty for Default",
       "value": "",
       "required": false
     },
@@ -41,10 +41,20 @@
     "PMPERMIT_PIC": {
       "description": "put here any telegraph media link for pmpermit custom pic.",
       "value": "",
-      "required": true
+      "required": false
+    },
+     "ALIVE_PIC": {
+      "description": "put here any telegraph media link for Media to show with .alive Command",
+      "value": "",
+      "required": false
     },
     "PM_PERMIT_GROUP_ID": {
       "description": "Put an Group Id Same As PRIVATE_GROUP_ID Required For Pmpermit plugin.",
+      "value": "",
+      "required": false
+    },
+    "SUDO_HNDLR": {
+      "description": "Symbol which SUDO_USERS use While Giving Commands. Dont Forget to Enter backslash at Starting of it..",
       "value": "",
       "required": false
     },
@@ -88,8 +98,8 @@
       "description": "Create a private group add rose bot then type /id. PLUGIN_CHANNEL and PRIVATE_GROUP_ID both values should be same",
       "value": ""
     },
-    "OCR_SPACE_API_KEY": {
-      "description": "Needed for ocr.py, get it from ocr.space .",
+    "SUDO_USERS": {
+      "description": "Users which Can use Your BOT by giving Commands Starting from SUDO_HNDLR. MAKE only Trustworthy Person as Sudo User",
       "value": "",
       "required": false
     },
@@ -98,7 +108,7 @@
        "value": ""
     }, 
     "STRING_SESSION": {
-      "description": "Get this value by running https://darkcobra.crazycreatorr.repl.run/ ",
+      "description": "Get this value by running https://phantomuserbot.prothinkergang.repl.run/ ",
       "value": ""
     },
     "LYDIA_API_KEY": {
@@ -129,34 +139,10 @@
       "value": "",
       "required": false
     },
-    "OPEN_WEATHER_MAP_APPID": {
-      "description": "Get your own APPID from https://api.openweathermap.org/data/2.5/weather",
-      "required": false
-    },
-    "NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD": {
-      "description": " Set The Amount Of Buttons Displayed In Help Command",
-      "value": "6",
-      "required": true
-    },
-    "NO_OF_COLUMS_DISPLAYED_IN_H_ME_CMD": {
-      "description": "Set The Amount Of Rows You Want To Displayed In Help Command default 2",
-      "required": true,
-      "value": "2"
-    },
-    "EMOJI_TO_DISPLAY_IN_HELP": {
-      "description": "Set The emojies You Want to Add In Help Command You Can Add Multiple Emojies too!!",
-      "value": "",
-      "required": true
-    }, 
     "TZ": {
       "description": "Required for Correct Time for autopic get from http://www.timezoneconverter.com/cgi-bin/findzone.tzc",
       "value": "Asia/Kolkata",
       "required": false
-    },
-    "REDIRECTCHANNEL": {
-      "description": "Put You Channel Username Reflecting Your Info or Your Tags Etc",
-      "value": "",
-      "required": false 
     }
   },
   "addons": [

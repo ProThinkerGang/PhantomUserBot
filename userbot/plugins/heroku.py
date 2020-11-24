@@ -11,7 +11,7 @@ import asyncio
 import os
 import requests
 import math
-from userbot.utils import admin_cmd
+from userbot.utils import phantom_cmd, admin_cmd
 from userbot import CMD_HELP
 from userbot.uniborgConfig import Config
 
@@ -26,10 +26,10 @@ HEROKU_API_KEY = Config.HEROKU_API_KEY
 Heroku = heroku3.from_key(Var.HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
 
-thumb_img_path = "./Resources/phantom.jpg"
+thumb_img_path = "./Resources/phantomot.jpg"
 thumb = thumb_img_path
 
-@borg.on(admin_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", outgoing=True))
+@borg.on(phantom_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", outgoing=True))
 async def variable(var):
     """
         Manage most of ConfigVars setting, set new var, get current var,
@@ -75,7 +75,7 @@ async def variable(var):
             os.remove("configs.json")
             return
     elif exe == "set":
-        await var.edit("`Setting information...weit ser`")
+        await var.edit("`Setting info...wait sirrr`")
         variable = var.pattern_match.group(2)
         if not variable:
             return await var.edit(">`.set var <ConfigVars-name> <value>`")
@@ -106,7 +106,7 @@ async def variable(var):
             return await var.edit(f"**{variable}**  `is not exists`")
 
 
-@borg.on(admin_cmd(pattern="usage(?: |$)", outgoing=True))
+@borg.on(phantom_cmd(pattern="usage(?: |$)", outgoing=True))
 async def dyno_usage(dyno):
     """
         Get your account Dyno Usage
@@ -163,7 +163,7 @@ async def dyno_usage(dyno):
                            f"**|**  [`{percentage}`**%**]"
                            )
 
-@borg.on(admin_cmd(pattern="logs$", outgoing=True))
+@borg.on(phantom_cmd(pattern="logs$", outgoing=True))
 async def _(dyno):        
         try:
              Heroku = heroku3.from_key(HEROKU_API_KEY)                         
@@ -176,8 +176,8 @@ async def _(dyno):
         await dyno.edit("Got the logs wait a sec")    
         await dyno.client.send_file(
             dyno.chat_id,
-            "Phantomlogs.txt",
-           thumb=thumb,
+            "logs.txt",
+            thumb=thumb,
             reply_to=dyno.id,
             caption="**Here are Your Logs...**\nPowered By **Phantom Userbot**",
         )

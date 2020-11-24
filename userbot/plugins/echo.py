@@ -27,17 +27,17 @@ from telethon import events
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
 from .. import CMD_HELP
-from ..utils import admin_cmd, edit_or_reply
+from ..utils import phantom_cmd, edit_or_reply
 from .sql_helper.echo_sql import addecho, get_all_echos, is_echo, remove_echo
 
 
-@borg.on(admin_cmd(pattern="enableecho$"))
+@borg.on(phantom_cmd(pattern="enableecho$"))
 async def echo(cat):
     if cat.fwd_from:
         return
     if cat.reply_to_msg_id is not None:
         reply_msg = await cat.get_reply_message()
-        user_id = reply_msg.from_id
+        user_id = reply_msg.sender_id
         chat_id = cat.chat_id
         try:
             hmm = pybase64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
@@ -54,13 +54,13 @@ async def echo(cat):
         await edit_or_reply(cat, "Reply To A User's Message to echo his messages")
 
 
-@borg.on(admin_cmd(pattern="disableecho$"))
+@borg.on(phantom_cmd(pattern="disableecho$"))
 async def echo(cat):
     if cat.fwd_from:
         return
     if cat.reply_to_msg_id is not None:
         reply_msg = await cat.get_reply_message()
-        user_id = reply_msg.from_id
+        user_id = reply_msg.sender_id
         chat_id = cat.chat_id
         try:
             hmm = pybase64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
@@ -77,7 +77,7 @@ async def echo(cat):
         await edit_or_reply(cat, "Reply To A User's Message to echo his messages")
 
 
-@borg.on(admin_cmd(pattern="listecho$"))
+@borg.on(phantom_cmd(pattern="listecho$"))
 async def echo(cat):
     if cat.fwd_from:
         return

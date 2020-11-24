@@ -13,9 +13,9 @@ from time import sleep
 import asyncio
 import os
 import random
-from userbot.utils import admin_cmd
+from userbot.utils import admin_cmd, phantom_cmd
 #@borg.on(events.NewMessage(pattern=r"\.karb ", outgoing=True))
-@borg.on(admin_cmd(pattern="karb"))
+@borg.on(phantom_cmd(pattern="karb"))
 async def carbon_api(e):
  RED = random.randint(0,256)
  GREEN = random.randint(0,256)
@@ -100,7 +100,7 @@ async def carbon_api(e):
    await e.client.send_file(
          e.chat_id,
          file,
-         caption="Carbonised by [Dark-Cobra](https://github.com/DARK-COBRA/DARKCOBRA)",
+         caption="Carbonised by [Phantom Userbot](https://github.com/Prothinkergang/PhantomUserbot)",
          force_document=False,
          reply_to=e.message.reply_to_msg_id,
          )

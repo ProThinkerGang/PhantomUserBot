@@ -12,7 +12,7 @@ from datetime import datetime
 
 from PIL import Image, ImageDraw, ImageFont
 
-from userbot.utils import admin_cmd
+from userbot.utils import phantom_cmd
 
 import asyncio
 
@@ -56,11 +56,11 @@ async def animepp():
 
     urllib.request.urlretrieve(fy,"donottouch.jpg")
 
-@borg.on(admin_cmd(pattern="avengersdp ?(.*)"))
+@borg.on(phantom_cmd(pattern="avengersdp ?(.*)"))
 
 async def main(event):
 
-    await event.edit("**Starting Avengers Profile Pic...\n\nDone !!! Check Your DP By @Dark_cobra_support**")
+    await event.edit("**Starting Avengers Profile Pic...\n\nDone !!! Check Your DP **")
 
     while True:
 

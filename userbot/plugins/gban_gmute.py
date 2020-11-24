@@ -20,7 +20,7 @@ async def get_full_user(event):
     extra = None
     if event.reply_to_msg_id and not len(args) == 2:
         previous_message = await event.get_reply_message()
-        user_obj = await event.client.get_entity(previous_message.from_id)
+        user_obj = await event.client.get_entity(previous_message.sender_id)
         extra = event.pattern_match.group(1)
     elif len(args[0]) > 0:
         user = args[0]
@@ -41,11 +41,11 @@ async def get_full_user(event):
         try:
             user_obj = await event.client.get_entity(user)
         except Exception as err:
-            return await event.edit("Error... Please report at @Dark_cobra_support_group", str(err))           
+            return await event.edit("Error... Please report it at @PhantomSupport", str(err))           
     return user_obj, extra
 
 
-async def get_user_from_id(user, event):
+async def get_user_sender_id(user, event):
     if isinstance(user, str):
         user = int(user)
     try:
@@ -65,7 +65,7 @@ async def gben(userbot):
     else:
         dark = await dc.edit("Wait Processing.....")
     me = await userbot.client.get_me()
-    await dark.edit(f"Trying to ban you globally..weit nd watch you nub nibba")
+    await dark.edit(f"`You Can Interfared In My matter\nNow WAIT and WATCH`")
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
     f"@{me.username}" if me.username else my_mention
     await userbot.get_chat()
@@ -87,7 +87,7 @@ async def gben(userbot):
     if user:
         if user.id == 1289422521:
             return await dark.edit(
-                f"**You nub nibba..I can't gben my creator..**"
+                f"**You nub nibba..I can't gban my creator..**"
             )
         try:
             from userbot.modules.sql_helper.gmute_sql import gmute
@@ -127,7 +127,7 @@ async def gunben(userbot):
     sender = await dc.get_sender()
     me = await dc.client.get_me()
     if not sender.id == me.id:
-        dark = await dc.reply("`Wait Let Me ungban this nub nibba again😂`")
+        dark = await dc.reply("`Wait Let Me ungban this User again😂`")
     else:
         dark = await dc.edit("Weit nd watch ! ")
     me = await userbot.client.get_me()

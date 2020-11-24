@@ -3,16 +3,16 @@ import os
 from datetime import datetime
 from pathlib import Path
 from telethon.tl.types import InputMessagesFilterDocument
-from userbot.utils import admin_cmd, load_module, remove_plugin
+from userbot.utils import phantom_cmd, load_module, remove_plugin
 from userbot import ALIVE_NAME
 from userbot import bot
 
 DELETE_TIMEOUT = 5
-thumb_image_path = "./Resources/phantom.jpg"
+thumb_image_path = "./Resources/phantomot.jpg"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
 
 
-@bot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
+@bot.on(phantom_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
 async def send(event):
     if event.fwd_from:
         return
@@ -34,15 +34,15 @@ async def send(event):
         end = datetime.now()
         time_taken_in_ms = (end - start).seconds
         await pro.edit(
-            f"**==> Plugin name:** `{input_str}`\n**==> Uploaded in {time_taken_in_ms} seconds only.**\n**==> Uploaded by:** [{DEFAULTUSER}](tg://user?id={hmm})\n"
-        )
+                       f"**==> Plugin name:** `{input_str}`\n**==> Uploaded in {time_taken_in_ms} seconds only.**\n**==> Uploaded by:** [{DEFAULTUSER}](tg://user?id={hmm})\n"
+        ) #doesnt work in saved messages
         await asyncio.sleep(DELETE_TIMEOUT)
         await event.delete()
     else:
         await edit_or_reply(event, "**404**: __File Not Found__")
 
 
-@bot.on(admin_cmd(pattern="install"))
+@bot.on(phantom_cmd(pattern="install"))
 async def install(event):
     if event.fwd_from:
         return
@@ -75,7 +75,7 @@ async def install(event):
     await event.delete()
 
 
-@bot.on(admin_cmd(pattern=r"unload (?P<shortname>\w+)$"))
+@bot.on(phantom_cmd(pattern=r"unload (?P<shortname>\w+)$"))
 async def unload(event):
     if event.fwd_from:
         return
@@ -91,7 +91,7 @@ async def unload(event):
         )
 
 
-@bot.on(admin_cmd(pattern=r"load (?P<shortname>\w+)$"))
+@bot.on(phantom_cmd(pattern=r"load (?P<shortname>\w+)$"))
 async def load(event):
     if event.fwd_from:
         return

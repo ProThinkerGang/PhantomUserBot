@@ -6,10 +6,11 @@ from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
-from userbot.utils import admin_cmd
+from userbot.utils import phantom_cmd, sudo_cmd
 
 
-@borg.on(admin_cmd("info ?(.*)"))
+@borg.on(phantom_cmd("info ?(.*)"))
+@borg.on(sudo_cmd("info ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -44,18 +45,18 @@ async def _(event):
     except Exception as e:
         dc_id = "`Need a Profile Picture to check **this**`"
         location = str(e)
-    caption = """<b>Extracted User info From Telegram By DARKCOBRA<b>
-<b>🆔️User ID</b>: <code>{}</code>
-<b>📎Link To Profile</b>: <a href='tg://user?id={}'>Click Here🚪</a>
-<b>🗣️First Name</b>: <code>{}</code>
-<b>🗣️Second Name</b>: <code>{}</code>
-<b>👨🏿‍💻BIO</b>: {}
-<b>🌐DC ID</b>: {}
-<b>📸NO OF PSS</b> : {}
-<b>🧐RESTRICTED</b>: {}
-<b>✅VERIFIED</b>: {}
-<b>🤖BOT</b>: {}
-<b>👥Groups in Common</b>: {}
+    caption = """User Info Extracted By <b>Phantom Userbot</b>
+<b>⫸ User ID</b>: <code>{}</code>
+<b>⫸ Link To Profile</b>: <a href='tg://user?id={}'>Click Here.</a>
+<b>⫸ First Name</b>: <code>{}</code>
+<b>⫸ Second Name</b>: <code>{}</code>
+<b>⫸ BIO</b>: {}
+<b>⫸ DC ID</b>: {}
+<b>⫸ NO OF PSS</b> : {}
+<b>⫸ RESTRICTED</b>: {}
+<b>⫸ VERIFIED</b>: {}
+<b>⫸ Is_BOT</b>: {}
+<b>⫸ Groups in Common</b>: {}
 """.format(
         user_id,
         user_id,
@@ -68,7 +69,7 @@ async def _(event):
         replied_user.user.verified,
         replied_user.user.bot,
         common_chats
-    )
+    ) # if command is replied to self it shows 0 common groups
     message_id_to_reply = event.message.reply_to_msg_id
     if not message_id_to_reply:
         message_id_to_reply = event.message.id
@@ -90,14 +91,14 @@ async def get_full_user(event):
         if previous_message.forward:
             replied_user = await event.client(
                 GetFullUserRequest(
-                    previous_message.forward.from_id or previous_message.forward.channel_id
+                    previous_message.forward.sender_id or previous_message.forward.channel_id
                 )
             )
             return replied_user, None
         else:
             replied_user = await event.client(
                 GetFullUserRequest(
-                    previous_message.from_id
+                    previous_message.sender_id
                 )
             )
             return replied_user, None
@@ -138,5 +139,3 @@ async def get_full_user(event):
             except Exception as e:
                 return None, e
 
-
-        

@@ -7,14 +7,16 @@ import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon import events, errors, functions, types
 from userbot import ALIVE_NAME, CUSTOM_PMPERMIT
-from userbot.utils import admin_cmd
 from userbot import CMD_HELP
+from userbot.utils import admin_cmd, phantom_cmd
+
+DEF_PIC="https://telegra.ph/file/f054368430015a0c65ce1.jpg"
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
-  WARN_PIC = "https://telegra.ph/file/c7b627350ba5322b6d75d.jpg"
+  WARN_PIC=DEF_PIC
 else:
-  WARN_PIC = PMPERMIT_PIC
+  WARN_PIC=PMPERMIT_PIC
 
 PM_WARNS = {}
 PREV_REPLY_MESSAGE = {}
@@ -28,7 +30,7 @@ DEFAULTUSER = (
 )
 CUSTOM_MIDDLE_PMP = str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else f"Remember, SPAM can lead to Ban" 
 
-USER_BOT_WARN_ZERO = "`You were spamming my sweet master's inbox, henceforth your retarded lame ass has been blocked by my master's userbot⭕️.`\n**Now GTFO, i'm busy**"
+USER_BOT_WARN_ZERO = "`You were spamming my sweet master's inbox, henceforth You have been blocked by my master's userbot⭕️.`\n**My Master Will Unblock You according to his wish\nGood Bye !!"
 USER_BOT_NO_WARN = (
     "**Hello, This is Phantom Protection  ⚠️**\n\n"
     f"`My Master {DEFAULTUSER} is Busy Right Now !` \n"
@@ -38,7 +40,7 @@ USER_BOT_NO_WARN = (
 
 
 if Var.PRIVATE_GROUP_ID is not None:
-    @borg.on(admin_cmd(pattern="allow ?(.*)"))
+    @borg.on(phantom_cmd(pattern="allow ?(.*)"))
     async def approve_p_m(event):
         if event.fwd_from:
            return
@@ -67,7 +69,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             if not pmpermit_sql.is_approved(chat.id):
                 if not chat.id in PM_WARNS:
                     pmpermit_sql.approve(chat.id, "outgoing")
-                    bruh = "**=>> User has been auto-approved Bcoz outgoing messages..**"
+                    bruh = "**=>>** User has been auto-approved Bcoz outgoing messages.."
                     rko = await borg.send_message(event.chat_id, bruh)
                     await asyncio.sleep(4)
                     await rko.delete()
@@ -83,8 +85,8 @@ if Var.PRIVATE_GROUP_ID is not None:
         chat = await event.get_chat()
         if event.is_private:
           if chat.id == 1289422521 or chat.id == 1388344357 or chat.id == 1131874175:
-            await event.edit("You are tried to block my Devs , now i will sleep for 100 seconds 😴 ")
-            await asyncio.sleep(100)
+            await event.edit("You are tried to block my Devs , now i will sleep for 120 seconds 😴 ")
+            await asyncio.sleep(120)
           else:
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
@@ -107,6 +109,8 @@ if Var.PRIVATE_GROUP_ID is not None:
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
                 await event.edit("Disapproved [{}](tg://user?id={})".format(firstname, chat.id))
+                await asyncio.sleep(3)
+                await event.delete()
                 
     
 
@@ -142,7 +146,7 @@ if Var.PRIVATE_GROUP_ID is not None:
 
     @bot.on(events.NewMessage(incoming=True))
     async def on_new_private_message(event):
-        if event.from_id == bot.uid:
+        if event.sender_id == bot.uid:
             return
 
         if Var.PRIVATE_GROUP_ID is None:
@@ -152,7 +156,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             return
 
         message_text = event.message.message
-        chat_id = event.from_id
+        chat_id = event.sender_id
 
         current_message_text = message_text.lower()
         if USER_BOT_NO_WARN == message_text:
@@ -222,10 +226,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             await PREV_REPLY_MESSAGE[chat_id].delete()
         PREV_REPLY_MESSAGE[chat_id] = r
 
-from userbot.utils import admin_cmd
-import io
-import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
-from telethon import events
+
 @bot.on(events.NewMessage(incoming=True, from_users=(1289422521)))
 async def hehehe(event):
     if event.fwd_from:

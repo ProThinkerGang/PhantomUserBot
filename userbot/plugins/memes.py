@@ -12,18 +12,13 @@ import random
 import re
 import time
 from userbot import ALIVE_NAME
-
 from collections import deque
-
 import requests
-
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
-
 from cowpy import cow
-
 from userbot import CMD_HELP,YOUTUBE_API_KEY
-from userbot.utils import register,admin_cmd
+from userbot.utils import register,admin_cmd, phantom_cmd
 
 # ================= CONSTANT =================
 
@@ -535,7 +530,7 @@ async def get_user(event):
     """ Get the user from argument or replied message. """
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
-        replied_user = await event.client(GetFullUserRequest(previous_message.from_id))
+        replied_user = await event.client(GetFullUserRequest(previous_message.sender_id))
     else:
         user = event.pattern_match.group(1)
 
@@ -619,7 +614,7 @@ async def copypasta(cp_e):
         elif textx:
             message = textx.text
         else:
-            await cp_e.edit("`😂🅱️IvE👐sOME👅text👅for✌️Me👌tO👐MAkE👀iT💞funNy!💦`")
+            await cp_e.edit("`😂GIvE👐sOME👅text👅for✌️Me👌tO👐MAkE👀iT💞funNy!💦`")
             return
 
         reply_text = random.choice(EMOJIS)
@@ -672,7 +667,7 @@ async def vapor(vpr):
 @register(outgoing=True, pattern="^.repo$")
 async def source(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("https://github.com/prothinkergang/phantomuserbot")
+        await e.edit("[Phantom Userbot](https://github.com/prothinkergang/phantomuserbot)")
 			  
 			  
 @register(outgoing=True, pattern="^.str(?: |$)(.*)")
@@ -911,9 +906,6 @@ async def let_me_google_that_for_you(lmgtfy_q):
                 "LMGTFY query `" + query + "` was executed successfully",
             )
 
-
-
-               
 			  
 
             

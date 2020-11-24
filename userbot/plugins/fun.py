@@ -1,15 +1,15 @@
 from telethon import events
 import random, re
-from uniborg.util import admin_cmd
+from userbot.utils import phantom_cmd, sudo_cmd
 
 METOOSTR = [
     "`Me too thanks`",
     "`Haha yes, me too`",
     "`Same lol`",
-    "`Me irl`",
+    "`Me too`",
     "`Same here`",
     "`Haha yes`",
-    "`Same pinch bsdk`",
+    "`Same pinch brp`",
 ]
 RUNSREACTS = [
     "`Runs to Thanos`",
@@ -27,7 +27,8 @@ PRO_STRINGS = [
      "`Pros here -_- Time to Leave`",
 ]
 
-@borg.on(admin_cmd(pattern="run ?(.*)"))
+@borg.on(phantom_cmd(pattern="run ?(.*)"))
+@borg.on(sudo_cmd(pattern="run ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
          return
@@ -37,7 +38,8 @@ async def _(event):
     await event.edit(reply_text)
 
 
-@borg.on(admin_cmd(pattern="metoo ?(.*)"))
+@borg.on(phantom_cmd(pattern="metoo ?(.*)"))
+@borg.on(sudo_cmd(pattern="metoo ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
          return
@@ -47,7 +49,8 @@ async def _(event):
     await event.edit(reply_text)
 			  
 			  
-@borg.on(admin_cmd(pattern="proo ?(.*)"))
+@borg.on(phantom_cmd(pattern="proo ?(.*)"))
+@borg.on(sudo_cmd(pattern="proo ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
          return

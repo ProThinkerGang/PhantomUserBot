@@ -9,13 +9,13 @@ from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotMo
 import io
 import asyncio
 import time
-from userbot.utils import admin_cmd
+from userbot.utils import admin_cmd, phantom_cmd
 import glob
 import os
 import spotdl
 import subprocess
 
-@borg.on(admin_cmd(pattern="getsong ?(.*)"))
+@borg.on(phantom_cmd(pattern="getsong ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -40,7 +40,7 @@ async def _(event):
         force_document=False,
         allow_cache=False,
         supports_streaming=True,
-        caption='Uploaded successfully by DARK COBRA userbot..!',
+        caption='Uploaded successfully',
         reply_to=reply_to_id,
     )
     subprocess.run("rm -rf *.mp3", shell=True)

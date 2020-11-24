@@ -18,8 +18,6 @@ from ..utils import admin_cmd, edit_or_reply
 
 
 
-
-
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
@@ -116,12 +114,12 @@ async def get_full_user(event):
         if previous_message.forward:
             replied_user = await event.client(
                 GetFullUserRequest(
-                    previous_message.forward.from_id
+                    previous_message.forward.sender_id
                     or previous_message.forward.channel_id
                 )
             )
             return replied_user, None
-        replied_user = await event.client(GetFullUserRequest(previous_message.from_id))
+        replied_user = await event.client(GetFullUserRequest(previous_message.sender_id))
         return replied_user, None
     if event.is_private:
         try:
@@ -170,7 +168,7 @@ async def get_user(event):
     """ Get the user from argument or replied message. """
     if event.reply_to_msg_id and not event.pattern_match.group(1):
         previous_message = await event.get_reply_message()
-        replied_user = await event.client(GetFullUserRequest(previous_message.from_id))
+        replied_user = await event.client(GetFullUserRequest(previous_message.sender_id))
     else:
         user = event.pattern_match.group(1)
         if user.isnumeric():
@@ -231,12 +229,12 @@ async def fetch_info(replied_user, event):
     )
     username = "@{}".format(username) if username else ("This User has no Username")
     user_bio = "This User has no About" if not user_bio else user_bio
-    caption = "<b>USER INFO from DARK COBRA's database :</b>\n\n"
+    caption = "<b>USER's INFO extraxted By **Phantom Userbot**:</b>\n\n"
     caption += f"👤First Name: {first_name} {last_name}\n"
     caption += f"🤵Username: {username}\n"
     caption += f"🔖ID: <code>{user_id}</code>\n"
     caption += f"🌏Data Centre ID: {dc_id}\n"
-    caption += f"🖼Number of Profile Pics: {replied_user_profile_photos_count}\n"
+    caption += f"🖼Nnumber of Profile Pics: {replied_user_profile_photos_count}\n"
     caption += f"🤖Is Bot: {is_bot}\n"
     caption += f"🔏Is Restricted: {restricted}\n"
     caption += f"🌐Is Verified by Telegram: {verified}\n\n"
@@ -268,7 +266,7 @@ async def get_user_from_event(event):
     extra = None
     if event.reply_to_msg_id and not len(args) == 2:
         previous_message = await event.get_reply_message()
-        user_obj = await event.client.get_entity(previous_message.from_id)
+        user_obj = await event.client.get_entity(previous_message.sender_id)
         extra = event.pattern_match.group(1)
     elif len(args[0]) > 0:
         user = args[0]

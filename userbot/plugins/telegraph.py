@@ -23,10 +23,6 @@ async def _(event):
         return
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
-    await borg.send_message(
-        Config.PLUGIN_CHANNEL,
-        "Created New Telegraph account {} for the current session. \n**Do not give this url to anyone, even if they say they are from Telegram!**".format(auth_url)
-    )
     optional_title = event.pattern_match.group(2)
     if event.reply_to_msg_id:
         start = datetime.now()
@@ -52,9 +48,9 @@ async def _(event):
                 end = datetime.now()
                 ms_two = (end - start).seconds
                 os.remove(downloaded_file_name)
-                await event.edit("https://telegra.ph{} ".format(media_urls[0], (ms + ms_two)), link_preview=True)
+                await event.edit("Successfully Uploaded to This [Telegraph Page](https://telegra.ph{})".format(media_urls[0], (ms + ms_two)), link_preview=False)
         elif input_str == "text":
-            user_object = await borg.get_entity(r_message.from_id)
+            user_object = await borg.get_entity(r_message.sender_id)
             title_of_page = user_object.first_name # + " " + user_object.last_name
             # apparently, all Users do not have last_name field
             if optional_title:
@@ -80,9 +76,9 @@ async def _(event):
             )
             end = datetime.now()
             ms = (end - start).seconds
-            await event.edit("Pasted ser https://telegra.ph/{} in {} seconds.".format(response["path"], ms), link_preview=True)
+            await event.edit("Pasted successfully https://telegra.ph/{} in {} seconds.".format(response["path"], ms), link_preview=False)
     else:
-        await event.edit("Reply to a message to get a permanent telegra.ph link. (Inspired by @ControllerBot)")
+        await event.edit("Reply to a message to get a permanent telegra.ph link.")
 
 
 def resize_image(image):

@@ -59,8 +59,7 @@ async def upstream(ups):
         return
     except InvalidGitRepositoryError as error:
         if conf != "now":
-            await ups.edit(f"Hey, did you type update🤔.....\
-            \nPlease do type |.update now| .")
+            await ups.edit(f"**Proceed to Your Update By Typing =>**`.update now`")
             return
         repo = Repo.init()
         origin = repo.create_remote('upstream', off_repo)
@@ -108,7 +107,7 @@ async def upstream(ups):
         await ups.respond("do `.update now` to update")
         return
     if force_update:
-        await ups.edit('Force-Syncing to latest stable userbot code, please wait master...😅😅')
+        await ups.edit('Force-Syncing to latest stable userbot code, Please wait a while...')
     else:
         await ups.edit('Updating userbot, please wait....\nDo `.update now` if u[date doesnt took place...')
     if HEROKU_API_KEY is not None:
@@ -139,7 +138,7 @@ async def upstream(ups):
             remote.set_url(heroku_git_url)
         else:
             remote = repo.create_remote("heroku", heroku_git_url)
-        await ups.edit("Updating and Deploying New Update. Please wait for 5 minutes then use `.alive` to check if i'm working or not, Just after this update a restart will take place for smooth working...")
+        await ups.edit("`Userbot Build in Progress,\nPlease Wait a While`")
         remote.push(refspec="HEAD:refs/heads/master", force=True)
     else:
         try:
@@ -148,7 +147,7 @@ async def upstream(ups):
             repo.git.reset("--hard", "FETCH_HEAD")
         reqs_upgrade = await update_requirements()
         await ups.edit('`Successfully Updated!\n'
-                       'Bot is restarting... Wait for a second!`')
+                       'Bot is restarting... Wait for Some Time`')
         # Spin a new instance of bot
         args = [sys.executable, "-m", "userbot"]
         execle(sys.executable, *args, environ)

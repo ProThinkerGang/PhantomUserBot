@@ -5,13 +5,13 @@ Available Commands:
 
 import emoji
 from googletrans import Translator
-from userbot.utils import admin_cmd
+from userbot.utils import phantom_cmd, sudo_cmd
 from telethon import events
 
 
-
-@borg.on(admin_cmd(pattern="tr ?(.*)"))
+@borg.on(phantom_cmd(pattern="tr ?(.*)"))
 @borg.on(events.NewMessage(pattern=r"\.tr ?(.*)",incoming=True))
+@borg.on(sudo_cmd(pattern="tr ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -36,7 +36,7 @@ async def _(event):
         after_tr_text = translated.text
         # TODO: emojify the :
         # either here, or before translation
-        output_str = """**Translated By 𝔻𝔸ℝ𝕂 ℂ𝕆𝔹ℝ𝔸** 
+        output_str = """**Translated By Phantom Userbot** 
          Source **( {} )**
          Translation **( {} )**
          {}""".format(

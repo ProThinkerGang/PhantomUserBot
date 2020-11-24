@@ -36,7 +36,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Please get your own Userbot, and don't use mine for more info visit @DARK_COBRA_SUPPORT!"
+            reply_pop_up_alert = "Create Your Own Userbot For More Help, Join @PhantomOt"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
@@ -55,13 +55,13 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Please get your own Userbot, and don't use mine!"
+            reply_pop_up_alert = "Create Your Own Userbot, For More Help, Join @PhantomOt"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == bot.uid:
-            await event.edit("The menu has been closed..!")
+            await event.edit("The Menu has been Closed Successfully ..!")
 
 
 
@@ -82,7 +82,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         else:
             reply_pop_up_alert = help_string
         reply_pop_up_alert += "\n Use .unload {} to remove this plugin\n\
-            ©DARK COBRA Userbot".format(plugin_name)
+            ©Phantom Userbot".format(plugin_name)
         try:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         except: 
@@ -92,14 +92,13 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 def paginate_help(page_number, loaded_plugins, prefix):
     number_of_rows = Config.NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD
     number_of_cols = Config.NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD
-    multi = Config.EMOJI_TO_DISPLAY_IN_HELP
     helpable_plugins = []
     for p in loaded_plugins:
         if not p.startswith("_"):
             helpable_plugins.append(p)
     helpable_plugins = sorted(helpable_plugins)
     modules = [custom.Button.inline(
-        "{} {}".format(random.choice(list(multi)), x, random.choice(list(multi))),
+        "{} {}".format("◈", x,"◈"),
         data="us_plugin_{}".format(x))
         for x in helpable_plugins]
     pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
@@ -110,8 +109,8 @@ def paginate_help(page_number, loaded_plugins, prefix):
     if len(pairs) > number_of_rows:
         pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
             [
-            (custom.Button.inline("Previous", data="{}_prev({})".format(prefix, modulo_page)),
-             custom.Button.inline("close menu", data="close"),
-             custom.Button.inline("Next", data="{}_next({})".format(prefix, modulo_page)))
+            (custom.Button.inline("⫷=I", data="{}_prev({})".format(prefix, modulo_page)),
+             custom.Button.inline("Close Menu", data="close"),
+             custom.Button.inline("I=⫸", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs

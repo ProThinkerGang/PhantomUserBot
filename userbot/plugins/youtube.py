@@ -19,12 +19,12 @@ async def yutup(event):
 
     await event.edit("`Commenting On Youtube \nwait a while....`")
     reply = await event.get_reply_message()
-    foto = await event.client.download_profile_photo(reply.from_id)
+    foto = await event.client.download_profile_photo(reply.sender_id)
     if foto == None:
         return await event.edit("`this message doesn't support on your device`")
     kullanici = await event.client(
         GetFullUserRequest(
-            reply.from_id
+            reply.sender_id
         )
     )
 

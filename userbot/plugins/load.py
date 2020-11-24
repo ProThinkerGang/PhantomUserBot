@@ -1,322 +1,57 @@
 """Emoji
 
 Available Commands:
-
-.load
-.square
 .up
-.round
-.heart
-.anim
-.fnl"""
-
-from telethon import events
+.gnl"""
 
 import asyncio
-
-
-
-
-
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
-async def _(event):
-
-    if event.fwd_from:
-
-        return
-
-    animation_interval = 0.1
-
-    animation_ttl = range(0, 100)
-
-    input_str = event.pattern_match.group(1)
-
-    if input_str == "load":
-
-        await event.edit(input_str)
-
-        animation_chars = [
-
-            "▮",
-
-            "▯",
-
-            "▬",
-
-            "▭"
-            "‎"
-
-        ]
-
-        for i in animation_ttl:
-
-            await asyncio.sleep(animation_interval)
-
-            await event.edit(animation_chars[i % 4])
-
-
-"""Emoji
-
-Available Commands:
-
-.emoji shrug
-
-.emoji apple
-
-.emoji :/
-
-.emoji -_-"""
-
 from telethon import events
-
-import asyncio
-
+from userbot.utils import phantom_cmd, sudo_cmd
 
 
-
-
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
+# @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@borg.on(phantom_cmd(pattern="up$", outgoing=True))
+@borg.on(sudo_cmd(pattern="up$", outgoing=True))
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.1
-
     animation_ttl = range(0, 100)
+    animation_chars = ["╹", "╻", "╹", "╻" "‎"]
+    for i in animation_ttl:
+        await asyncio.sleep(animation_interval)
+        await event.edit(animation_chars[i % 4])
+    
 
-    input_str = event.pattern_match.group(1)
-
-    if input_str == "square":
-
-        await event.edit(input_str)
-
-        animation_chars = [
-
-            "◧",
-
-            "◨",
-
-            "◧",
-
-            "◨"
-            "‎"
-
-        ]
-
-        for i in animation_ttl:
-
-            await asyncio.sleep(animation_interval)
-
-            await event.edit(animation_chars[i % 4])
-
-
-
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
+@borg.on(phantom_cmd(pattern="round$", outgoing=True))
+@borg.on(sudo_cmd(pattern="round$", outgoing=True))
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.1
-
     animation_ttl = range(0, 100)
+    animation_chars = ["⚫", "⬤", "●", "∘" "‎","‎", "●", "⬤","⚫️"]
+    for i in animation_ttl:
+        await asyncio.sleep(animation_interval)
+        await event.edit(animation_chars[i % 8])
+        
 
-    input_str = event.pattern_match.group(1)
-
-    if input_str == "up":
-
-        await event.edit(input_str)
-
-        animation_chars = [
-
-            "╹",
-
-            "╻",
-
-            "╹",
-
-            "╻"
-            "‎"
-
-        ]
-
-        for i in animation_ttl:
-
-            await asyncio.sleep(animation_interval)
-
-            await event.edit(animation_chars[i % 4])
-
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
+# @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@borg.on(phantom_cmd(pattern="gnl$", outgoing=True))
+@borg.on(sudo_cmd(pattern="gnl$", outgoing=True))
 async def _(event):
-
     if event.fwd_from:
-
         return
-
-    animation_interval = 0.1
-
-    animation_ttl = range(0, 100)
-
-    input_str = event.pattern_match.group(1)
-
-    if input_str == "round":
-
-        await event.edit(input_str)
-
-        animation_chars = [
-
-            "⚫",
-
-            "⬤",
-
-            "●",
-
-            "∘"
-            "‎"
-
-        ]
-
-        for i in animation_ttl:
-
-            await asyncio.sleep(animation_interval)
-
-            await event.edit(animation_chars[i % 4])
-
-
-
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
-async def _(event):
-
-    if event.fwd_from:
-
-        return
-
-    animation_interval = 0.1
-
-    animation_ttl = range(0, 100)
-
-    input_str = event.pattern_match.group(1)
-
-    if input_str == "heart":
-
-        await event.edit(input_str)
-
-        animation_chars = [
-
-            "🖤",
-
-            "❤️",
-
-            "🖤",
-
-            "❤️"
-            "‎"
-
-        ]
-
-        for i in animation_ttl:
-
-            await asyncio.sleep(animation_interval)
-
-            await event.edit(animation_chars[i % 4])
-
-
-
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
-async def _(event):
-
-    if event.fwd_from:
-
-        return
-
-    animation_interval = 1
-
-    animation_ttl = range(0, 11)
-
-    input_str = event.pattern_match.group(1)
-
-    if input_str == "anim":
-
-        await event.edit(input_str)
-
-        animation_chars = [
-
-            "😁",
-
-            "😧",
-
-            "😡",
-
-            "😢",
-
-            "‎**Repo by @r4v4n4**",
- 
-            "😁",
-
-            "😧",
-
-            "😡",
-
-            "😢",
-
-            "‎github.com/ravana69/pornhub",
-
-            "__**RePe GeNg Is BeHiNd You....**__"
-
-        ]
-
-        for i in animation_ttl:
-
-            await asyncio.sleep(animation_interval)
-
-            await event.edit(animation_chars[i % 11])
-
-
-@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
-
-async def _(event):
-
-    if event.fwd_from:
-
-        return
-
     animation_interval = 2
-
     animation_ttl = range(0, 6)
-
-    input_str = event.pattern_match.group(1)
-
-    if input_str == "fnl":
-
-        await event.edit(input_str)
-
-        animation_chars = [
-
-            "😁🏿",
-
-            "😁🏾",
-
-            "😁🏽",
-
-            "😁🏼",
-
-            "‎😁",
-
-            "**Fair & Lovely GeNg Is BeHiNd You....**"
-
+    animation_chars = [
+        "😁🏿",
+        "😁🏾",
+        "😁🏽",
+        "😁🏼",
+        "‎😁",
+        "**Glow & Lovely GeNg Is BeHiNd You....**",
         ]
-
-        for i in animation_ttl:
-
-            await asyncio.sleep(animation_interval)
-
-            await event.edit(animation_chars[i % 6])
+    for i in animation_ttl:
+        await asyncio.sleep(animation_interval)
+        await event.edit(animation_chars[i % 6])

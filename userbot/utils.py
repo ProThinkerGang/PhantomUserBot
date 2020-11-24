@@ -2,8 +2,9 @@ from userbot import bot
 from telethon import events
 from pathlib import Path
 from var import Var
-from userbot import LOAD_PLUG
+from userbot import LOAD_PLUG , SUDO_LIST
 from userbot import CMD_LIST
+# from userbot import FULL_SUDO, FULL_SUDO_USERS
 import re
 import logging
 import inspect
@@ -18,8 +19,8 @@ import sys
 import traceback
 import datetime
 
+    
 from telethon.tl.functions.messages import GetPeerDialogsRequest
-
 from typing import List
 
 ENV = bool(os.environ.get("ENV", False))
@@ -29,6 +30,11 @@ else:
     if os.path.exists("config.py"):
         from config import Development as Config
 
+        
+#if Config.FULL_SUDO=="ENABLE" and Config.FULL_SUDO_USERS is None:
+ #   FULL_SUDO_USERS = Config.SUDO_USERS
+    
+    
 def command(**args):
     args["func"] = lambda e: e.via_bot_id is None
 
@@ -171,8 +177,8 @@ def admin_cmd(pattern=None, **args):
             args["pattern"] = re.compile(pattern)
         else:
             
-            args["pattern"] = re.compile(Config.COMMAND_HAND_LER + pattern)
-            reg =Config.COMMAND_HAND_LER[1]
+            args["pattern"] = re.compile(Config.CMD_HNDLR + pattern)
+            reg =Config.CMD_HNDLR[1]
             cmd = (reg +pattern).replace("$", "").replace("\\", "").replace("^", "")
 
             try:
@@ -224,8 +230,8 @@ def phantom_cmd(pattern=None, **args):
             args["pattern"] = re.compile(pattern)
         else:
             
-            args["pattern"] = re.compile(Config.COMMAND_HAND_LER + pattern)
-            reg =Config.COMMAND_HAND_LER[1]
+            args["pattern"] = re.compile(Config.CMD_HNDLR + pattern)
+            reg =Config.CMD_HNDLR[1]
             cmd = (reg +pattern).replace("$", "").replace("\\", "").replace("^", "")
 
             try:
@@ -459,8 +465,8 @@ def sudo_cmd(pattern=None, **args):
             args["pattern"] = re.compile(pattern)
         else:
             
-            args["pattern"] = re.compile(Config.SUDO_COMMAND_HAND_LER + pattern)
-            reg =Config.SUDO_COMMAND_HAND_LER[1]
+            args["pattern"] = re.compile(Config.SUDO_HNDLR + pattern)
+            reg =Config.SUDO_HNDLR[1]
             cmd = (reg +pattern).replace("$", "").replace("\\", "").replace("^", "")
             try:
                 SUDO_LIST[file_test].append(cmd)
@@ -474,7 +480,6 @@ def sudo_cmd(pattern=None, **args):
         # Mutually exclusive with outgoing (can only set one of either).
         args["incoming"] = True
         del args["allow_sudo"]
-
     # error handling condition check
     elif "incoming" in args and not args["incoming"]:
         args["outgoing"] = True
@@ -497,7 +502,7 @@ def sudo_cmd(pattern=None, **args):
     return events.NewMessage(**args)
 
 async def edit_or_reply(event, text):
-    if event.from_id in Config.SUDO_USERS:
+    if event.sender_id in Config.SUDO_USERS:
         reply_to = await event.get_reply_message()
         if reply_to:
             return await reply_to.reply(text)

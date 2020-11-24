@@ -1,3 +1,4 @@
+from userbot import ALIVE_PIC
 from userbot import bot
 from sys import argv
 import sys
@@ -15,7 +16,6 @@ async def add_bot(bot_token):
     await bot.start(bot_token)
     bot.me = await bot.get_me() 
     bot.uid = telethon.utils.get_peer_id(bot.me)
-
 
 
 if len(argv) not in (1, 3, 4):
@@ -37,7 +37,6 @@ else:
     else:
         bot.start()
     
-
 import glob
 path = 'userbot/plugins/*.py'
 files = glob.glob(path)
@@ -46,10 +45,16 @@ for name in files:
         path1 = Path(f.name)
         shortname = path1.stem
         load_module(shortname.replace(".py", ""))
+        
+if ALIVE_PIC is not None:
+    print("###--------------Alive Pic Added Successfully--------------###")
+    
+
 
 import userbot._core
-print("Everything Alright,")
-print("Phantom Is Online, Join @PhantomOt")
+print("Everything is Alright, Do .alive or .help to Check Online Status of Your Bot !!")
+print("Join @PhantomOt For Reporting any Bug or an Issue !!")
+
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()

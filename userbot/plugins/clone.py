@@ -27,7 +27,7 @@ from telethon.tl.types import InputPhoto, MessageMediaPhoto, User, Chat, Channel
 from userbot import bot, CMD_HELP , AUTONAME , DEFAULT_BIO , ALIVE_NAME
 
 DEFAULTUSER = str(AUTONAME) if AUTONAME else str(ALIVE_NAME)
-DEFAULTUSERBIO = str(DEFAULT_BIO) if DEFAULT_BIO else "Dark Cobra is best"
+DEFAULTUSERBIO = str(DEFAULT_BIO) if DEFAULT_BIO else "Hmm"
 BOTLOG_CHATID = Config.PRIVATE_GROUP_BOT_API_ID
 BOTLOG = True
 
@@ -95,7 +95,7 @@ async def _(event):
     await borg(functions.account.UpdateProfileRequest(first_name=f"{name}"))
     await event.edit("succesfully reverted to your account back")
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, f"#REVERT\nSuccesfully reverted back to your profile")
+        await event.client.send_message(BOTLOG_CHATID, f"#REVERT\nSuccessfully reverted back to your profile")
     
     
     
@@ -105,14 +105,14 @@ async def get_full_user(event):
         if previous_message.forward:
             replied_user = await event.client(
                 GetFullUserRequest(
-                    previous_message.forward.from_id or previous_message.forward.channel_id
+                    previous_message.forward.sender_id or previous_message.forward.channel_id
                 )
             )
             return replied_user, None
         else:
             replied_user = await event.client(
                 GetFullUserRequest(
-                    previous_message.from_id
+                    previous_message.sender_id
                 )
             )
             return replied_user, None
