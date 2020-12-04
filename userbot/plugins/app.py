@@ -1,7 +1,6 @@
 """Fetch App Details from Playstore.
 .app <app_name> to fetch app details.
 .appr <app_name>  to fetch app details with Xpl0iter request link."""
-
 import re
 
 import bs4
@@ -10,7 +9,8 @@ from telethon import *
 
 from userbot import CMD_HELP
 from userbot.events import register
-from userbot.utils import phantom_cmd, sudo_cmd
+from userbot.utils import phantom_cmd
+from userbot.utils import sudo_cmd
 
 
 @borg.on(phantom_cmd(pattern="app (.*)"))

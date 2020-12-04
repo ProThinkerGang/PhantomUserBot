@@ -4,19 +4,19 @@
 # custom cmds by @heyworld to make it look more gayish
 # Thanks to @AbhinavShinde @jisan7509 for strings
 # Edited by @Sur_vivor
-
 # New History
 # Thanks to @The_speedy_speedster for new Good morning and Congo Strings
 # Phantom Userbot (c)
-
 """ Userbot module for having some fun with people. """
-
 import asyncio
 import random
-from random import choice, getrandbits, randint
+from random import choice
+from random import getrandbits
+from random import randint
 from re import sub
 
-from telethon import events, functions
+from telethon import events
+from telethon import functions
 
 from userbot.utils import admin_cmd
 

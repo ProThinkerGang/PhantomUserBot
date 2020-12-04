@@ -3,8 +3,6 @@ Available Commands:
 .go <query>
 
 .go"""
-
-
 from datetime import datetime
 
 import requests

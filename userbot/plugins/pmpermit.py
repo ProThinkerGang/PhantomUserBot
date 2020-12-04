@@ -3,13 +3,19 @@ import io
 import os
 import time
 
-from telethon import errors, events, functions, types
+from telethon import errors
+from telethon import events
+from telethon import functions
+from telethon import types
 from telethon.tl.functions.users import GetFullUserRequest
 
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
-from userbot import ALIVE_NAME, CMD_HELP, CUSTOM_PMPERMIT
+from userbot import ALIVE_NAME
+from userbot import CMD_HELP
+from userbot import CUSTOM_PMPERMIT
 from userbot.uniborgConfig import Config
-from userbot.utils import admin_cmd, phantom_cmd
+from userbot.utils import admin_cmd
+from userbot.utils import phantom_cmd
 
 DEF_PIC = "https://telegra.ph/file/f054368430015a0c65ce1.jpg"
 

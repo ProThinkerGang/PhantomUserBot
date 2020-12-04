@@ -1,7 +1,6 @@
 # Coded by t.me/Fusuf #
 # Please ask before kang #
 # 2020 @AsenaUserBot #
-
 from os import remove
 from urllib.parse import quote
 

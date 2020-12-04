@@ -2,7 +2,10 @@ import asyncio
 import os
 import sys
 from distutils.util import strtobool as sb
-from logging import DEBUG, INFO, basicConfig, getLogger
+from logging import basicConfig
+from logging import DEBUG
+from logging import getLogger
+from logging import INFO
 
 import pylast
 from pySmartDL import SmartDL
