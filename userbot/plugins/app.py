@@ -2,10 +2,12 @@
 .app <app_name> to fetch app details.
 .appr <app_name>  to fetch app details with Xpl0iter request link."""
 
-import requests
-import bs4
 import re
+
+import bs4
+import requests
 from telethon import *
+
 from userbot import CMD_HELP
 from userbot.events import register
 from userbot.utils import phantom_cmd, sudo_cmd

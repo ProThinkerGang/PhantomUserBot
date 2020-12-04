@@ -2,12 +2,14 @@
 # Please ask before kang #
 # 2020 @AsenaUserBot #
 
-from userbot.events import register
-from requests import get
 from os import remove
+from urllib.parse import quote
+
+from requests import get
 from telegraph import upload_file
 from telethon.tl.functions.users import GetFullUserRequest
-from urllib.parse import quote
+
+from userbot.events import register
 
 
 @register(outgoing=True, pattern="^.youtube")

@@ -15,10 +15,10 @@ import asyncio
 import random
 from random import choice, getrandbits, randint
 from re import sub
-from random import randint
-from telethon import events, functions
-from userbot.utils import admin_cmd
 
+from telethon import events, functions
+
+from userbot.utils import admin_cmd
 
 # ================= CONSTANT =================
 

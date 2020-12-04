@@ -1,16 +1,18 @@
-from requests import get
-from pySmartDL import SmartDL
-import pylast
 import asyncio
-from distutils.util import strtobool as sb
-from logging import basicConfig, getLogger, INFO, DEBUG
 import os
 import sys
-from telethon.sessions import StringSession
+from distutils.util import strtobool as sb
+from logging import DEBUG, INFO, basicConfig, getLogger
+
+import pylast
+from pySmartDL import SmartDL
+from requests import get
 from telethon import TelegramClient
+from telethon.sessions import StringSession
+from telethon.tl.functions.users import GetFullUserRequest
+
 from userbot.helper import functions as darkdef
 from var import Var
-from telethon.tl.functions.users import GetFullUserRequest
 
 os.system("pip install --upgrade pip")
 if Var.STRING_SESSION:
