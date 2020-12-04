@@ -2,7 +2,7 @@
   "name": "Phantom Userbot",
   "description": "A Bot for Security, Management and Fun",
   "logo": "https://raw.githubusercontent.com/ProThinkerGang/PhantomUserbot/master/Resources/phantom1.jpg",
-    "keywords": [
+  "keywords": [
     "telegram",
     "management",
     "userbot",
@@ -38,7 +38,7 @@
       "value": "https://telegra.ph/file/f054368430015a0c65ce1.jpg",
       "required": false
     },
-     "ALIVE_PIC": {
+    "ALIVE_PIC": {
       "description": "put here any telegraph media link for Media to show with .alive Command",
       "value": "https://telegra.ph/file/ecb974be110f8141e861d.jpg",
       "required": false
@@ -98,17 +98,12 @@
       "required": false
     },
     "PM_LOGGR_BOT_API_ID": {
-       "description": "for login private messages create a private channel and do .get_id and add that id", 
-       "value": ""
-    }, 
+      "description": "for login private messages create a private channel and do .get_id and add that id",
+      "value": ""
+    },
     "STRING_SESSION": {
       "description": "Get this value by running https://phantomuserbot.prothinkergang.repl.run/ ",
       "value": ""
-    },
-    "LYDIA_API_KEY": {
-      "description": "Needed for Lydia AI. Follow https://telegra.ph/Lydia-09-05 to get your API.",
-      "value": "",
-      "required": false
     },
     "HEROKU_API_KEY": {
       "description": "Go to https://dashboard.heroku.com/account, scroll down and press Reveal API.Required for updater to work.",
@@ -145,17 +140,24 @@
   "buildpacks": [
     {
       "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-  },{
-    "url":"https://github.com/amivin/aria2-heroku.git"
-  },{
-    "url":"https://github.com/heroku/heroku-buildpack-google-chrome"
-  },{
-     "url": "https://github.com/heroku/heroku-buildpack-apt.git"
-  },{
-    "url":"https://github.com/heroku/heroku-buildpack-chromedriver"
-  },{
-    "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
-  },{
-    "url": "heroku/python"
-  }]
+    },
+    {
+      "url": "https://github.com/amivin/aria2-heroku.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-apt.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-chromedriver"
+    },
+    {
+      "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ]
 }
