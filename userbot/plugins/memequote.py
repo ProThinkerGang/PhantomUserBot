@@ -62,7 +62,6 @@ METOOSTR = [
     "Me rn",
 ]
 
-
 GDNOON = [
     "`My wishes will always be with you, Morning wish to make you feel fresh, Afternoon wish to accompany you, Evening wish to refresh you, Night wish to comfort you with sleep, Good Afternoon Dear!`",
     "`With a deep blue sky over my head and a relaxing wind around me, the only thing I am missing right now is the company of you. I wish you a refreshing afternoon!`",
@@ -110,7 +109,6 @@ GDNOON = [
     "`Afternoons like this makes me think about you more. I desire so deeply to be with you in one of these afternoons just to tell you how much I love you. Good afternoon my love!`",
     "`My heart craves for your company all the time. A beautiful afternoon like this can be made more enjoyable if you just decide to spend it with me. Good afternoon!`",
 ]
-
 
 CHASE_STR = [
     "Where do you think you're going?",
@@ -163,7 +161,6 @@ CHASE_STR = [
     "What are you running after, a white rabbit?",
     "As The Doctor would say... RUN!",
 ]
-
 
 HELLOSTR = [
     "Hi !",

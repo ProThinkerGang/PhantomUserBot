@@ -35,7 +35,8 @@ async def _(event):
     if event.fwd_from:
         return
     if Config.REM_BG_API_KEY is None:
-        await event.edit("You need API token from remove.bg to use this plugin.")
+        await event.edit(
+            "You need API token from remove.bg to use this plugin.")
         return False
     input_str = event.pattern_match.group(1)
     start = datetime.now()
@@ -47,8 +48,7 @@ async def _(event):
         await event.edit("Ooh Analysing this pic...")
         try:
             downloaded_file_name = await borg.download_media(
-                reply_message, Config.TMP_DOWNLOAD_DIRECTORY
-            )
+                reply_message, Config.TMP_DOWNLOAD_DIRECTORY)
         except Exception as e:
             await event.edit(str(e))
             return
@@ -77,16 +77,12 @@ async def _(event):
         end = datetime.now()
         ms = (end - start).seconds
         await event.edit(
-            "Removed that annoying Backgroup in {} seconds, powered by @Phantomot".format(
-                ms
-            )
-        )
+            "Removed that annoying Backgroup in {} seconds, powered by @Phantomot"
+            .format(ms))
     else:
         await event.edit(
-            "ReMove.BG API returned Errors. Please report to @UniBorg\n`{}".format(
-                output_file_name.content.decode("UTF-8")
-            )
-        )
+            "ReMove.BG API returned Errors. Please report to @UniBorg\n`{}".
+            format(output_file_name.content.decode("UTF-8")))
 
 
 # this method will call the API, and return in the appropriate format

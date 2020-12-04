@@ -23,11 +23,13 @@ async def yutup(event):
     reply = await event.get_reply_message()
     foto = await event.client.download_profile_photo(reply.sender_id)
     if foto == None:
-        return await event.edit("`this message doesn't support on your device`")
+        return await event.edit("`this message doesn't support on your device`"
+                                )
     kullanici = await event.client(GetFullUserRequest(reply.sender_id))
 
     if not kullanici.user.username:
-        return await event.edit("`Join` @PhantomSupport `for any Query or Help..`")
+        return await event.edit(
+            "`Join` @PhantomSupport `for any Query or Help..`")
 
     avatar = upload_file(foto)
     json = f"https://some-random-api.ml/canvas/youtube-comment?avatar=https://telegra.ph{avatar[0]}&comment={quote(reply.message)}&username={kullanici.user.username}"
