@@ -138,7 +138,7 @@ CHASE_STR = [
     "May the odds be ever in your favour.",
     "Famous last words.",
     "And they disappeared forever, never to be seen again.",
-    "\"Oh, look at me! I'm so cool, I can run from a bot!\" - this person",
+    '"Oh, look at me! I\'m so cool, I can run from a bot!" - this person',
     "Yeah yeah, just tap /kickme already.",
     "Here, take this ring and head to Mordor while you're at it.",
     "Legend has it, they're still running...",
@@ -276,7 +276,7 @@ GDMORNING = [
     "Forget about what you couldn’t achieve yesterday and think of the wonderful things today has for you. Work with all your might towards them to make your tomorrow extraordinarily bright. Good morning!",
     "Believe that you are beautiful and have what it takes to move mountains, and you’ll move mountains.  Don’t allow yourself to be let down by what others say. Get up and do what you can do best. Good morning.",
     "Today is not just another day, but another possible chance to achieve what you couldn’t achieve yesterday. So get on your feet and chase after your success. Good morning.",
-    "As you wake up from sleep today, know that I have faith in you. I believe in you, and I know you have what it takes to conquer the hurdles in your way. Just believe in yourself like I believe in you and you will achieve remarkable things in this life. Good morning."
+    "As you wake up from sleep today, know that I have faith in you. I believe in you, and I know you have what it takes to conquer the hurdles in your way. Just believe in yourself like I believe in you and you will achieve remarkable things in this life. Good morning.",
 ]
 
 
