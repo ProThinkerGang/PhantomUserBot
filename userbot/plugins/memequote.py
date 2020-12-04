@@ -1,11 +1,11 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
-#custom cmds by @heyworld to make it look more gayish
-#Thanks to @AbhinavShinde @jisan7509 for strings
-#Edited by @Sur_vivor
+# custom cmds by @heyworld to make it look more gayish
+# Thanks to @AbhinavShinde @jisan7509 for strings
+# Edited by @Sur_vivor
 
-#New History
+# New History
 # Thanks to @The_speedy_speedster for new Good morning and Congo Strings
 # Phantom Userbot (c)
 
@@ -40,7 +40,7 @@ RUNSREACTS = [
     "`Congratulation`",
     "`Congrats and Keep it Up !!`",
     "Congrats, You Did it....",
-     "Congratulations dear on the start of something best and beautiful! ",
+    "Congratulations dear on the start of something best and beautiful! ",
     "You did it! So proud of you!",
     "This calls for celebrating! Congratulations!",
     "Congratulations! You totally nailed it! Totally. Super job,",
@@ -277,40 +277,48 @@ GDMORNING = [
     "Believe that you are beautiful and have what it takes to move mountains, and you’ll move mountains.  Don’t allow yourself to be let down by what others say. Get up and do what you can do best. Good morning.",
     "Today is not just another day, but another possible chance to achieve what you couldn’t achieve yesterday. So get on your feet and chase after your success. Good morning.",
     "As you wake up from sleep today, know that I have faith in you. I believe in you, and I know you have what it takes to conquer the hurdles in your way. Just believe in yourself like I believe in you and you will achieve remarkable things in this life. Good morning."
-]    
-        
+]
+
+
 @borg.on(admin_cmd(pattern=f"metoo$", outgoing=True))
 async def metoo(hahayes):
     await hahayes.edit(choice(METOOSTR))
 
+
 @borg.on(admin_cmd(pattern=f"gdnoon$", outgoing=True))
 async def noon(noon):
-    await noon.edit(choice(GDNOON))    
-    
+    await noon.edit(choice(GDNOON))
+
+
 @borg.on(admin_cmd(pattern=f"chase$", outgoing=True))
 async def police(chase):
     await chase.edit(choice(CHASE_STR))
-       
+
+
 @borg.on(admin_cmd(pattern=f"qhi$", outgoing=True))
 async def hoi(hello):
     await hello.edit(choice(HELLOSTR))
-    
+
+
 @borg.on(admin_cmd(pattern=f"gdbye$", outgoing=True))
 async def bhago(bhagobc):
     await bhagobc.edit(choice(BYESTR))
-    
+
+
 @borg.on(admin_cmd(pattern=f"gdn$", outgoing=True))
 async def night(night):
     await night.edit(choice(GDNIGHT))
-    
+
+
 @borg.on(admin_cmd(pattern=f"gdm$", outgoing=True))
 async def morning(morning):
     await morning.edit(choice(GDMORNING))
-    
+
+
 @borg.on(admin_cmd(pattern="congo"))
 async def _(event):
     if event.fwd_from:
-         return
-    bro = random.randint(0, len(RUNSREACTS) - 1)    
+        return
+    bro = random.randint(0, len(RUNSREACTS) - 1)
     reply_text = RUNSREACTS[bro]
     await event.edit(reply_text)

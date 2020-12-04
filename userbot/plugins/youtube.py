@@ -9,11 +9,12 @@ from telegraph import upload_file
 from telethon.tl.functions.users import GetFullUserRequest
 from urllib.parse import quote
 
+
 @register(outgoing=True, pattern="^.youtube")
 async def yutup(event):
     if not event.is_reply:
         return await event.edit('**Reply to a message!**')
-    
+
     if not event.text:
         return await event.edit('**Please reply to a message!**')
 
@@ -40,4 +41,3 @@ async def yutup(event):
     await event.delete()
     remove(foto)
     remove('phantom.png')
-

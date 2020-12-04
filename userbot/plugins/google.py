@@ -5,7 +5,6 @@ Available Commands:
 .go"""
 
 
-
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -14,7 +13,8 @@ from uniborg.util import admin_cmd
 
 
 def progress(current, total):
-    logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
+    logger.info("Downloaded {} of {}\nCompleted {}".format(
+        current, total, (current / total) * 100))
 
 
 @borg.on(admin_cmd(pattern="go (.*)"))
@@ -24,7 +24,8 @@ async def _(event):
     start = datetime.now()
     await event.edit("searching")
     # SHOW_DESCRIPTION = False
-    input_str = event.pattern_match.group(1) # + " -inurl:(htm|html|php|pls|txt) intitle:index.of \"last modified\" (mkv|mp4|avi|epub|pdf|mp3)"
+    # + " -inurl:(htm|html|php|pls|txt) intitle:index.of \"last modified\" (mkv|mp4|avi|epub|pdf|mp3)"
+    input_str = event.pattern_match.group(1)
     input_url = "https://bots.shrimadhavuk.me/search/?q={}".format(input_str)
     headers = {"USER-AGENT": "UniBorg"}
     response = requests.get(input_url, headers=headers).json()
@@ -40,9 +41,6 @@ async def _(event):
     await event.edit("searched Google for {} in {} seconds. \n{}".format(input_str, ms, output_str), link_preview=False)
     await asyncio.sleep(5)
     await event.edit("**Google: {}\n{}**".format(input_str, output_str), link_preview=False)
-
-
-
 
 
 @borg.on(admin_cmd(pattern="grs"))
@@ -67,14 +65,16 @@ async def _(event):
                 "image_content": ""
             }
             # https://stackoverflow.com/a/28792943/4723940
-            google_rs_response = requests.post(SEARCH_URL, files=multipart, allow_redirects=False)
+            google_rs_response = requests.post(
+                SEARCH_URL, files=multipart, allow_redirects=False)
             the_location = google_rs_response.headers.get("Location")
             os.remove(downloaded_file_name)
         else:
             previous_message_text = previous_message.message
             SEARCH_URL = "{}/searchbyimage?image_url={}"
             request_url = SEARCH_URL.format(BASE_URL, previous_message_text)
-            google_rs_response = requests.get(request_url, allow_redirects=False)
+            google_rs_response = requests.get(
+                request_url, allow_redirects=False)
             the_location = google_rs_response.headers.get("Location")
         await event.edit("Found Google Result")
         headers = {
@@ -97,6 +97,3 @@ async def _(event):
 
 More Info: Open this <a href="{the_location}">LINK</a> in {ms} seconds""".format(**locals())
     await event.edit(OUTPUT_STR, parse_mode="HTML", link_preview=False)
-
-
- 
