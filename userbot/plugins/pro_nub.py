@@ -8,30 +8,17 @@
 @arnab431"""
 
 from telethon import events
-
 import asyncio
-
-from userbot.utils import admin_cmd
-
+from userbot.utils import phantom_cmd
 
 
-
-
-@borg.on(admin_cmd("unoob"))
-
+@borg.on(phantom_cmd("unoob"))
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.5
-    
-
     animation_ttl = range(0, 9)
-
     await event.edit("You Noob")
-
     animation_chars = [
             "EvErYbOdY",
             "iZ",
@@ -45,27 +32,17 @@ async def _(event):
         ]
 
     for i in animation_ttl:
-
-
         await event.edit(animation_chars[i % 9])
         await asyncio.sleep(animation_interval)
             
             
-@borg.on(admin_cmd("menoob"))
-
+@borg.on(phantom_cmd("menoob"))
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.5
-    
-
     animation_ttl = range(0, 9)
-
     await event.edit("Me Noob")
-
     animation_chars = [
             "EvErYbOdY",
             "iZ",
@@ -79,26 +56,16 @@ async def _(event):
         ]
 
     for i in animation_ttl:
-
-
         await event.edit(animation_chars[i % 9])
         await asyncio.sleep(animation_interval) 
             
-@borg.on(admin_cmd("upro"))
-
+@borg.on(phantom_cmd("upro"))
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.5
-    
-
     animation_ttl = range(0, 8)
-    
     await event.edit("You Pro")
-
     animation_chars = [
             "EvErYbOdY",
             "iZ",
@@ -109,28 +76,17 @@ async def _(event):
             "😈",
             "EvErYbOdY iZ PeRu uNtiL YoU aRriVe 😈"
         ]
-
     for i in animation_ttl:
-
-
         await event.edit(animation_chars[i % 8])
         await asyncio.sleep(animation_interval)  
             
-@borg.on(admin_cmd("mepro"))
-
+@borg.on(phantom_cmd("mepro"))
 async def _(event):
-
     if event.fwd_from:
-
         return
-
     animation_interval = 0.5
-    
-
     animation_ttl = range(0, 8)
-
     await event.edit("Me Pro")
-
     animation_chars = [
             "EvErYbOdY",
             "iZ",
@@ -143,7 +99,5 @@ async def _(event):
         ]
 
     for i in animation_ttl:
-
-
         await event.edit(animation_chars[i % 8])
         await asyncio.sleep(animation_interval)                                
