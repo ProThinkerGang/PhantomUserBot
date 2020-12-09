@@ -6,7 +6,6 @@
 .mepro
 
 @arnab431"""
-
 import asyncio
 
 from telethon import events
